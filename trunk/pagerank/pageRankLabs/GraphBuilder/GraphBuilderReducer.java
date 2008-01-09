@@ -1,3 +1,7 @@
+/* Author = jhebert@cs.washington.edu
+ * License = GPL
+ */
+
 import java.io.IOException;
 import java.util.Iterator;
 
