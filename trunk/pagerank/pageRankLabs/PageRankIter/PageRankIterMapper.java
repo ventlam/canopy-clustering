@@ -14,23 +14,23 @@ import org.apache.hadoop.io.Text;
 
 public class PageRankIterMapper extends MapReduceBase implements Mapper {
 
-	public void map(WritableComparable key, Writable value,
-			OutputCollector output, Reporter reporter) throws IOException {
-		
-		String data = ((Text)value).toString();
-		int index = data.indexOf(":");
-		if(index==-1)
-			return;
-		String toParse = data.substring(0, index).trim();
-		double currScore = Double.parseDouble(toParse);
-		data = data.substring(index+1);
-		String[] pages = data.split(" ");
-		Text toEmit = new Text((new Double(.98*currScore/pages.length)).toString());
-		for(String page : pages) {
-			output.collect(new Text(page), toEmit);
-		}
-		output.collect(key, new Text(".02"));
-		output.collect(key, new Text(" "+data));
-	}
+  public void map(WritableComparable key, Writable value,
+                  OutputCollector output, Reporter reporter) throws IOException {
 
+    String data = ((Text)value).toString();
+    int index = data.indexOf(":");
+    if (index == -1) {
+      return;
+    }
+    String toParse = data.substring(0, index).trim();
+    double currScore = Double.parseDouble(toParse);
+    data = data.substring(index+1);
+    String[] pages = data.split(" ");
+    Text toEmit = new Text((new Double(.98 * currScore / pages.length)).toString());
+    for (String page : pages) {
+      output.collect(new Text(page), toEmit);
+    }
+    output.collect(key, new Text(".02"));
+    output.collect(key, new Text(" " + data));
+  }
 }
