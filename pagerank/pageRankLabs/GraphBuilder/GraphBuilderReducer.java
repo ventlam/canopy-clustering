@@ -15,22 +15,21 @@ import java.lang.StringBuilder;
 
 public class GraphBuilderReducer extends MapReduceBase implements Reducer {
 
-	public void reduce(WritableComparable key, Iterator values,
-			OutputCollector output, Reporter reporter) throws IOException {
-		
-		reporter.setStatus(key.toString());
-		String toWrite="";
-		int count=0;
-		while(values.hasNext()) {
-			String page = ((Text)values.next()).toString();
-			page.replaceAll(" ", "_");
-			toWrite+=" "+page;
-			count+=1;
-		}
+  public void reduce(WritableComparable key, Iterator values,
+                     OutputCollector output, Reporter reporter) throws IOException {
 
-		String num = (new Integer(count)).toString();
-		toWrite = num+":"+toWrite;
-		output.collect(key, new Text(toWrite));		
-	}
+    reporter.setStatus(key.toString());
+    String toWrite = "";
+    int count = 0;
+    while (values.hasNext()) {
+      String page = ((Text)values.next()).toString();
+      page.replaceAll(" ", "_");
+      toWrite += " " + page;
+      count += 1;
+    }
 
+    String num = (new Integer(count)).toString();
+    toWrite = num + ":" + toWrite;
+    output.collect(key, new Text(toWrite));
+  }
 }
