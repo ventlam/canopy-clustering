@@ -1,3 +1,8 @@
+//
+// Author - Jack Hebert (jhebert@cs.washington.edu)
+// Copyright 2007
+// Distributed under GPLv3
+//
 import java.io.IOException;
 import java.util.*;
 import org.apache.hadoop.mapred.JobConf;

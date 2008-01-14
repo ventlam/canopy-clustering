@@ -1,3 +1,8 @@
+//
+// Author - Jack Hebert (jhebert@cs.washington.edu)
+// Copyright 2007
+// Distributed under GPLv3
+//
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapred.JobClient;

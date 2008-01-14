@@ -1,7 +1,8 @@
-/* Author = jhebert@cs.washington.edu
- * License = GPL
- */
-
+//
+// Author - Jack Hebert (jhebert@cs.washington.edu)
+// Copyright 2007
+// Distributed under GPLv3
+//
 import java.io.IOException;
 import java.util.Iterator;
 
